@@ -2,8 +2,8 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 
-\title{Decentralized }
-\author{open project, }
+\title{Decentralized Learning System}
+\author{Open Project Team}
 \date{1.8.2023}
 
 \begin{document}
@@ -11,19 +11,72 @@
 \maketitle
 
 \begin{abstract}
-  This paper proposes a high level overview of how a large training model would be implemented using 
+  This paper proposes a high-level overview of a decentralized learning system with a unique 3-layer architecture, aiming to leverage diverse computing devices for efficient and robust model training.
 \end{abstract}
 
 \section{Introduction}
 
-\section{3-Layer Adoption   }
+In the era of large-scale machine learning, the need for decentralized systems has become crucial. This paper explores a 3-layer decentralized learning architecture, comprising a super layer, an updater, an ensemble class, and a top layer.
 
-On a larger scale, we can 
+\section{3-Layer Architecture}
 
+\subsection{Super Layer}
 
+At the foundation of our decentralized system, we introduce the concept of a super layer ($S$). Let $S$ represent the input layer, where $n$ is the number of features. The super layer initiates the learning process and passes information to the updater.
 
+\subsection{Updater}
 
+The updater ($U$) plays a crucial role in reducing bias, allocating tasks, and updating weights. The mathematical representation can be expressed as follows:
 
+\[
+U_{ij} = \text{Activation}\left(\sum_{k=1}^{n} S_{ik} \times W_{kj} + B_j\right)
+\]
 
+Here, $W$ represents the weight matrix, and $B$ is the bias vector. The activation function introduces non-linearity into the system.
+
+\subsection{Ensemble Class}
+
+The ensemble class ($E$) consists of multiple ensembles or a combination of computing devices with varying computing power. Let $E_{pq}$ denote the connection strength between ensemble $p$ and device $q$. The output of the ensemble class is a weighted sum of the inputs:
+
+\[
+E_{ij} = \sum_{p} \sum_{q} U_{pq} \times E_{pq} \times \text{Computational Power}_{q}
+\]
+
+\subsection{Top Layer}
+
+The top layer ($T$) represents the output layer, consisting of devices with different computing capabilities. The final output can be expressed as:
+
+\[
+T_{ij} = \text{Activation}\left(\sum_{k} E_{ik} \times V_{kj} + C_j\right)
+\]
+
+Similar to the updater, $V$ denotes the weight matrix, and $C$ is the bias vector.
+
+\section{Challenges, Advantages, and Solutions}
+
+\subsection{Challenges}
+
+\begin{itemize}
+  \item \textbf{Communication Overhead:} Coordinating information exchange among different layers and devices.
+  \item \textbf{Heterogeneous Devices:} Managing diverse computing capabilities in the ensemble.
+\end{itemize}
+
+\subsection{Advantages}
+
+\begin{itemize}
+  \item \textbf{Scalability:} The system can scale with the addition of more devices.
+  \item \textbf{Robustness:} Diverse computing capabilities enhance the robustness of the model.
+\end{itemize}
+
+\subsection{Solutions}
+
+\begin{itemize}
+  \item \textbf{Communication Protocols:} Implement efficient communication protocols to reduce overhead.
+  \item \textbf{Task Allocation Strategies:} Develop intelligent task allocation strategies based on device capabilities.
+\end{itemize}
+
+\section{Way Forward}
+
+The future of this decentralized learning technology lies in further exploration of adaptive algorithms, improved communication frameworks, and enhanced ensemble strategies. Additionally, research should focus on optimizing the allocation of tasks based on real-time device performance metrics.
 
 \end{document}
